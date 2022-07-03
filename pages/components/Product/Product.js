@@ -9,7 +9,7 @@ const Product = () => {
       </div>
       <div className="d-flex items-center justify-content-center">
         <div>
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "18rem" }} className="text-center">
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
               <Card.Title>Product Title</Card.Title>
