@@ -24,7 +24,9 @@ const New = () => {
         >
           <Container className="flex">
             <div>
-              <Navbar.Brand href="#">Evaly</Navbar.Brand>
+              <Navbar.Brand href="#" className="fw-bold">
+                Evaly
+              </Navbar.Brand>
             </div>
             <div>
               <Navbar.Toggle
