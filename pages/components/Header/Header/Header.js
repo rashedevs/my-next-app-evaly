@@ -20,7 +20,7 @@ const New = () => {
           bg="secondary"
           variant="dark"
           expand={expand}
-          className="mb-3"
+          className="mb-0"
         >
           <Container className="flex">
             <div>
