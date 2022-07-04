@@ -1,7 +1,7 @@
 import React from "react";
+import Link from "next/link";
 import {
   Navbar,
-  Link,
   Container,
   Nav,
   Offcanvas,
@@ -11,7 +11,7 @@ import {
   Form,
 } from "react-bootstrap";
 
-const New = () => {
+const Header = () => {
   return (
     <>
       {[false].map((expand) => (
@@ -24,9 +24,11 @@ const New = () => {
         >
           <Container className="flex">
             <div>
-              <Navbar.Brand href="#" className="fw-bold">
-                Evaly
-              </Navbar.Brand>
+              <Link href="/" passHref>
+                <Navbar.Brand href="/" className="fw-bold">
+                  Evaly
+                </Navbar.Brand>
+              </Link>
             </div>
             <div>
               <Navbar.Toggle
@@ -44,9 +46,15 @@ const New = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link href="#action1">Home</Nav.Link>
-                    <Nav.Link href="#action2">Cart</Nav.Link>
-                    <Nav.Link href="#action2">Login</Nav.Link>
+                    <Link href="/" passHref>
+                      <Nav.Link href="/">Home</Nav.Link>
+                    </Link>
+                    <Link href="/components/Cart">
+                      <Nav.Link href="/Cart">Cart</Nav.Link>
+                    </Link>
+                    <Link href="/components/Login">
+                      <Nav.Link href="/login">Login</Nav.Link>
+                    </Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
@@ -58,4 +66,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default Header;
