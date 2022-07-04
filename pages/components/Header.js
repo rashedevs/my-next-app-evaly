@@ -1,15 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Navbar,
-  Container,
-  Nav,
-  Offcanvas,
-  NavDropdown,
-  FormControl,
-  Button,
-  Form,
-} from "react-bootstrap";
+import { Navbar, Container, Nav, Offcanvas } from "react-bootstrap";
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
