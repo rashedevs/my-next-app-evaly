@@ -8,7 +8,7 @@ const Product = () => {
     return single;
   });
   const prod = productt[0];
-  // console.log(prod);
+
   return (
     <>
       <div className="text-center fw-bold my-4 text-danger my-5">
@@ -22,6 +22,7 @@ const Product = () => {
               <Card.Title>{prod.name}</Card.Title>
               <Card.Text>{prod.description}</Card.Text>
               <Card.Text>$ {prod.price} USD</Card.Text>
+
               <Link href={`/components/${prod.id}`} passHref>
                 <Button variant="primary">Add To Cart</Button>
               </Link>
