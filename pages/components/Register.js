@@ -1,10 +1,21 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Link from "next/dist/client/link";
 import Header from "./Header";
 import Footer from "./Footer";
+import auth from "../firebase.init";
+import { useRouter } from "next/router";
 
 const Register = () => {
+  const router = useRouter();
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  let errorContainer;
+  if (error) {
+    errorContainer = <p className="text-danger">Error: {error?.message}</p>;
+  }
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -16,6 +27,10 @@ const Register = () => {
       event.target.reset();
       return;
     }
+    await createUserWithEmailAndPassword(email, password);
+    router.push("/");
+    alert("Registration Successful");
+    event.target.reset();
   };
   return (
     <>
@@ -57,7 +72,7 @@ const Register = () => {
             Register
           </Button>
         </Form>
-        {/* {errorContainer} */}
+        {errorContainer}
         <p>
           Already have an account?{" "}
           <Link href="/components/Login" className="text-primary pe-auto">
@@ -69,7 +84,6 @@ const Register = () => {
             </span>
           </Link>
         </p>
-        {/* <ToastContainer /> */}
       </div>
       <Footer></Footer>
     </>
