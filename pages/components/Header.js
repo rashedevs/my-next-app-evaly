@@ -55,14 +55,6 @@ const Header = () => {
                         Home
                       </Nav.Link>
                     </Link>
-                    {/* <Link href="/components/Cart">
-                      <Nav.Link
-                        href="/Cart"
-                        className="fw-bold text-white mx-2"
-                      >
-                        Cart
-                      </Nav.Link>
-                    </Link> */}
                     {user ? (
                       <button className="text-center mx-2 rounded">
                         <p className="my-auto">{user.email}</p>
