@@ -5,11 +5,11 @@ import data from "../../public/data";
 const Cart = () => {
   const router = useRouter();
   const id = router.query.id;
-  // const product = data.find((a) => a.id === id);
-  // if (!product) {
-  //   return <div>No Product Found</div>;
-  // }
-  return <div>{Cart}</div>;
+  const product = data.find((a) => a.id == id);
+  if (!product) {
+    return <div>No Product Found</div>;
+  }
+  return <div>{product?.name}</div>;
 };
 
 export default Cart;

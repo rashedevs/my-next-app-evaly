@@ -1,7 +1,7 @@
 import React from "react";
-import NextLink from "next/link";
+import Link from "next/link";
 import { Card, Button } from "react-bootstrap";
-import data from "./../../public/data";
+import data from "../../public/data";
 
 const Product = () => {
   const productt = data.map((single) => {
@@ -22,9 +22,9 @@ const Product = () => {
               <Card.Title>{prod.name}</Card.Title>
               <Card.Text>{prod.description}</Card.Text>
               <Card.Text>$ {prod.price} USD</Card.Text>
-              <NextLink href={`/components/Cart`} passHref>
+              <Link href={`/components/${prod.id}`} passHref>
                 <Button variant="primary">Add To Cart</Button>
-              </NextLink>
+              </Link>
             </Card.Body>
           </Card>
         </div>

@@ -47,11 +47,13 @@ const Login = () => {
         {/* {errorContainer} */}
         <p>
           Don`t have an account?{" "}
-          <Link
-            href="/components/Register"
-            className="text-primary pe-auto text-decoration-none"
-          >
-            Please Register
+          <Link href="/components/Register" className="text-primary pe-auto">
+            <span
+              style={{ cursor: "pointer" }}
+              className="text-decoration-none text-danger"
+            >
+              Please Register
+            </span>
           </Link>
         </p>
         {/* <ToastContainer /> */}
