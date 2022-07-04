@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import Link from "next/link";
 import Header from "./Header";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
 import Footer from "./Footer";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
+  const { redirect } = router.query;
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  useEffect(() => {
+    if (user) {
+      router.push(redirect || "/");
+    }
+  });
+
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    alert("ok");
+    await signInWithEmailAndPassword(email, password);
   };
 
   return (

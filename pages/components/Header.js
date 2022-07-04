@@ -10,8 +10,12 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
   return (
     <>
       {[false].map((expand) => (
@@ -52,9 +56,25 @@ const Header = () => {
                     <Link href="/components/Cart">
                       <Nav.Link href="/Cart">Cart</Nav.Link>
                     </Link>
-                    <Link href="/components/Login">
-                      <Nav.Link href="/login">Login</Nav.Link>
-                    </Link>
+                    {user ? (
+                      <button className="text-align-left text-primary border-0 bg-warning">
+                        <p>{user.email}</p>
+                      </button>
+                    ) : (
+                      ""
+                    )}
+                    {user ? (
+                      <button
+                        className="text-align-left text-white bg-dark"
+                        onClick={() => signOut(auth)}
+                      >
+                        Sign Out
+                      </button>
+                    ) : (
+                      <Link href="/components/Login">
+                        <Nav.Link href="/login">Login</Nav.Link>
+                      </Link>
+                    )}
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
